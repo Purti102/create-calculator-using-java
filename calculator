@@ -1,0 +1,200 @@
+package eclipse;
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+public class CalculatorDemo {
+private JFrame frame;
+private JTextField textresult_txt;
+int a,b,result,op;
+String ans;
+/**
+* Launch the application.
+*/
+public static void main(String[] args) {
+EventQueue.invokeLater(new Runnable() {
+public void run() {
+try {
+CalculatorDemo window = new CalculatorDemo();
+window.frame.setVisible(true);
+} catch (Exception e) {
+e.printStackTrace();
+}
+}
+});
+}
+/**
+* Create the application.
+*/
+public CalculatorDemo() {
+initialize();
+}
+/**
+* Initialize the contents of the frame.
+*/
+private void initialize() {
+frame = new JFrame();
+frame.setBounds(100, 100, 604, 510);
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.getContentPane().setLayout(null);
+textresult_txt = new JTextField();
+textresult_txt.setBounds(26, 16, 541, 55);
+frame.getContentPane().add(textresult_txt);
+textresult_txt.setColumns(10);
+JButton btn_1 = new JButton("1");
+btn_1.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText(textresult_txt.getText()+"1");
+}
+});
+btn_1.setBounds(25, 99, 115, 68);
+frame.getContentPane().add(btn_1);
+JButton btn_2 = new JButton("2");
+btn_2.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText(textresult_txt.getText()+"2");
+}
+});
+btn_2.setBounds(167, 99, 115, 68);
+frame.getContentPane().add(btn_2);
+JButton btn_3 = new JButton("3");
+btn_3.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText(textresult_txt.getText()+"3");
+}
+});
+btn_3.setBounds(312, 99, 115, 68);
+frame.getContentPane().add(btn_3);
+JButton btn_4 = new JButton("4");
+btn_4.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText(textresult_txt.getText()+"4");
+}
+});
+btn_4.setBounds(25, 195, 115, 62);
+frame.getContentPane().add(btn_4);
+JButton btn_5 = new JButton("5");
+btn_5.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText(textresult_txt.getText()+"5");
+}
+});
+btn_5.setBounds(167, 195, 115, 62);
+frame.getContentPane().add(btn_5);
+JButton btn_6 = new JButton("6");
+btn_6.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText(textresult_txt.getText()+"6");
+}
+});
+btn_6.setBounds(312, 195, 115, 62);
+frame.getContentPane().add(btn_6);
+JButton btn_7 = new JButton("7");
+btn_7.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText(textresult_txt.getText()+"7");
+}
+});
+btn_7.setBounds(25, 284, 115, 62);
+frame.getContentPane().add(btn_7);
+JButton btn_8 = new JButton("8");
+btn_8.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText(textresult_txt.getText()+"8");
+}
+});
+btn_8.setBounds(167, 284, 115, 62);
+frame.getContentPane().add(btn_8);
+JButton btn_9 = new JButton("9");
+btn_9.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText(textresult_txt.getText()+"9");
+}
+});
+btn_9.setBounds(312, 284, 115, 62);
+frame.getContentPane().add(btn_9);
+JButton btn_0 = new JButton("0");
+btn_0.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText(textresult_txt.getText()+"0");
+}
+});
+btn_0.setBounds(25, 380, 115, 58);
+frame.getContentPane().add(btn_0);
+JButton btnC = new JButton("c.");
+btnC.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+textresult_txt.setText("");
+}
+});
+btnC.setBounds(167, 380, 115, 58);
+frame.getContentPane().add(btnC);
+JButton btn_equal = new JButton("=");
+btn_equal.addActionListener(new ActionListener() {
+public void actionPerformed (ActionEvent e) {
+b = Integer.parseInt(textresult_txt.getText());
+if (op==1) {
+result = a+b;
+textresult_txt.setText(String.format("%d", result));
+}
+else if (op==2) {
+result = a-b;
+textresult_txt.setText(String.format("%d", result));
+}
+else if (op==3) {
+result = a*b;
+textresult_txt.setText(String.format("%d", result));
+}
+else if (op==4) {
+result = a/b;
+textresult_txt.setText(String.format("%d", result));
+}
+
+}
+});
+btn_equal.setBounds(312, 380, 115, 58);
+frame.getContentPane().add(btn_equal);
+JButton btn_add = new JButton("+");
+btn_add.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+a=Integer.parseInt(textresult_txt.getText());
+textresult_txt.setText("");
+op=1;
+}
+});
+btn_add.setBounds(452, 99, 115, 68);
+frame.getContentPane().add(btn_add);
+JButton btn_sub = new JButton("-");
+btn_sub.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+a=Integer.parseInt(textresult_txt.getText());
+textresult_txt.setText("");
+op=2;
+}
+});
+btn_sub.setBounds(452, 195, 115, 62);
+frame.getContentPane().add(btn_sub);
+JButton btn_multi = new JButton("*");
+btn_multi.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+a=Integer.parseInt(textresult_txt.getText());
+textresult_txt.setText("");
+op=3;
+}
+});
+btn_multi.setBounds(452, 288, 115, 58);
+frame.getContentPane().add(btn_multi);
+JButton btn_divi = new JButton("/");
+btn_divi.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+a=Integer.parseInt(textresult_txt.getText());
+textresult_txt.setText("");
+op=4;
+}
+});
+btn_divi.setBounds(452, 380, 115, 58);
+frame.getContentPane().add(btn_divi);
+}
+}
